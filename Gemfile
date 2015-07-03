@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 
 gem 'bower-rails'
+gem 'angular-rails-templates'
 gem 'sass', '3.2.19'
 
 # bundle exec rake doc:rails generates tphe API under doc/api.
