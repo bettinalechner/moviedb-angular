@@ -1,0 +1,1 @@
+moviedb = angular.module('moviedb', []);
