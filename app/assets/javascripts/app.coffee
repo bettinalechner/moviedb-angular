@@ -1,6 +1,7 @@
 moviedb = angular.module('moviedb', [
 	'templates',
 	'ngRoute',
+	'ngResource',
 	'controllers'
 ])
 
@@ -25,8 +26,8 @@ movies = [
 ]
 
 controllers = angular.module('controllers', [])
-controllers.controller('MoviesController', ['$scope', '$routeParams', '$location'
-	($scope, $routeParams, $location)->
+controllers.controller('MoviesController', ['$scope', '$routeParams', '$location', '$resource'
+	($scope, $routeParams, $location, $resource)->
 		$scope.search = (keywords)-> $location.path('/').search('keywords', keywords)
 
 		if $routeParams.keywords
