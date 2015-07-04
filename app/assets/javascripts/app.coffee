@@ -14,17 +14,6 @@ moviedb.config([ '$routeProvider',
 			)
 ])
 
-movies = [
-	{
-		id: 1
-		name: 'Pulp Fiction'
-	},
-	{
-		id: 2
-		name: 'Kill Bill Vol. 1'
-	}
-]
-
 controllers = angular.module('controllers', [])
 controllers.controller('MoviesController', ['$scope', '$routeParams', '$location', '$resource'
 	($scope, $routeParams, $location, $resource)->
