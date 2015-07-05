@@ -1,33 +1,38 @@
-<aside class="flash row">
-	<article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
-		{{ flash.message }}
-	</article>
-</aside>
-<form role="form" class="form-horizontal edit-movie">
-	<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
-		<label for="title" class="col-md-2 control-label col-md-offset-2">Title</label>
-		<div class="col-md-5">
-			<input type="text" name="title" class="form-control" placeholder="e.g. Shawshank Redemption" ng-model="movie.title">
+<div class="panel-heading">
+	<h1 class="panel-title">Movie</h1>
+</div>
+<div class="panel-body">
+	<aside class="flash row">
+		<article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
+			{{ flash.message }}
+		</article>
+	</aside>
+	<form role="form" class="form-horizontal edit-movie">
+		<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
+			<label for="title" class="col-md-2 control-label col-md-offset-2">Title</label>
+			<div class="col-md-5">
+				<input type="text" name="title" class="form-control" placeholder="e.g. Shawshank Redemption" ng-model="movie.title">
+			</div>
 		</div>
-	</div>
-	<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
-		<label for="year" class="col-md-2 control-label col-md-offset-2">Year</label>
-		<div class="col-md-5">
-			<input type="text" name="year" class="form-control" placeholder="e.g. 2002 Redemption" ng-model="movie.year">
+		<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
+			<label for="year" class="col-md-2 control-label col-md-offset-2">Year</label>
+			<div class="col-md-5">
+				<input type="text" name="year" class="form-control" placeholder="e.g. 2002" ng-model="movie.year">
+			</div>
 		</div>
-	</div>
-	<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
-		<label for="rating" class="col-md-2 control-label col-md-offset-2">Rating</label>
-		<div class="col-md-5">
-			<input type="text" name="rating" class="form-control" placeholder="e.g. 8 Redemption" ng-model="movie.rating">
+		<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
+			<label for="rating" class="col-md-2 control-label col-md-offset-2">Rating</label>
+			<div class="col-md-5">
+				<input type="text" name="rating" class="form-control" placeholder="e.g. 8" ng-model="movie.rating">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-md-offset-2 col-md-3">
-			<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+		<div class="form-group">
+			<div class="col-md-offset-4 col-md-1">
+				<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+			</div>
+			<div class="col-md-4 text-right">
+				<button class="btn btn-primary" ng-click="save()">Save</button>
+			</div>
 		</div>
-		<div class="col-md-4 text-right">
-			<button class="btn btn-primary" ng-click="save()">Save</button>
-		</div>
-	</div>
-</form>
+	</form>
+</div>
