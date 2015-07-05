@@ -11,11 +11,19 @@ moviedb.config([ '$routeProvider', 'flashProvider',
 	($routeProvider, flashProvider)->
 		$routeProvider
 			.when('/',
-				templateUrl: 'index.html'
-				controller: 'MoviesController'
+				templateUrl: 'index.html',
+				controller: 'MoviesController',
+			)
+			.when('/movies/new',
+				templateUrl: 'form.html',
+				controller: 'MovieController'
 			)
 			.when('/movies/:movieId',
 				templateUrl: 'show.html',
+				controller: 'MovieController'
+			)
+			.when('/movies/:movieId/edit',
+				templateUrl: 'form.html',
 				controller: 'MovieController'
 			)
 

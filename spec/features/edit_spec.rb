@@ -3,7 +3,7 @@ require 'spec_helper.rb'
 feature 'Creating, editing, and deleting a movie', js: true do
 	scenario 'CRUD a movie' do
 		visit '/'
-		click on 'New Movie'
+		click_on 'New Movie'
 
 		fill_in 'title', with: 'Serenity'
 		fill_in 'year', with: 2005
