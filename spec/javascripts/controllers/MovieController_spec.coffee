@@ -3,6 +3,7 @@ describe 'MovieController', ->
 	ctrl = null
 	routeParams = null
 	httpBackend = null
+	flash = null
 	movieId = 42
 
 	fakeMovie =
@@ -13,12 +14,13 @@ describe 'MovieController', ->
 
 
 	setupController =(movieExists=true)->
-		inject(($location, $routeParams, $rootScope, $httpBackend, $controller)->
+		inject(($location, $routeParams, $rootScope, $httpBackend, $controller, _flash_)->
 			scope = $rootScope.$new()
 			location = $location
 			httpBackend = $httpBackend
 			routeParams = $routeParams
 			routeParams.movieId = movieId
+			flash = _flash_
 
 			request = new RegExp("\/movies/#{movieId}")
 			results = if movieExists
@@ -52,3 +54,4 @@ describe 'MovieController', ->
 			it 'loads the given movie', ->
 				httpBackend.flush()
 				expect(scope.movie).toBe(null)
+				expect(flash.error).toBe("There is no movie with ID #{movieId}")
