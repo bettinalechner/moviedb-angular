@@ -42,4 +42,31 @@ describe MoviesController do
 			end
 		end
 	end
+
+	describe 'show' do
+		before do
+			xhr :get, :show, format: :json, id: movie_id
+		end
+
+		subject(:results) { JSON.parse(response.body) }
+
+		context "when the movie exists" do
+			let(:movie) {
+				Movie.create!({ title: 'Serenity', year: '2005', rating: 8 })
+			}
+
+			let(:movie_id) { movie.id }
+
+			it { expect(response.status).to eq(200) }
+			it { expect(results['id']).to eq(movie.id) }
+			it { expect(results['title']).to eq(movie.title) }
+			it { expect(results['year']).to eq(movie.year) }
+			it { expect(results['rating']).to eq(movie.rating) }
+		end
+
+		context "when the movie doesn't exist" do
+			let(:movie_id) { -9999 }
+			it { expect(response.status).to eq(404) }
+		end
+	end
 end

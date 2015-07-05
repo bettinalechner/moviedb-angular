@@ -14,7 +14,7 @@ moviedb.config([ '$routeProvider',
 				templateUrl: 'index.html'
 				controller: 'MoviesController'
 			)
-			.when('/recipes/:recipeId',
+			.when('/movies/:movieId',
 				templateUrl: 'show.html',
 				controller: 'MovieController'
 			)
