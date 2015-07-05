@@ -19,6 +19,6 @@ feature 'Viewing a movie', js: true do
 		click_on 'Back'
 
 		expect(page).to have_content('Pulp Fiction')
-		expect(page).to_not have_content('1994')
+		expect(page).to_not have_content('Delete')
 	end
 end
