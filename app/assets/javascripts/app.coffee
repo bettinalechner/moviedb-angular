@@ -7,8 +7,8 @@ moviedb = angular.module('moviedb', [
 	'angular-flash.flash-alert-directive'
 ])
 
-moviedb.config([ '$routeProvider',
-	($routeProvider)->
+moviedb.config([ '$routeProvider', 'flashProvider',
+	($routeProvider, flashProvider)->
 		$routeProvider
 			.when('/',
 				templateUrl: 'index.html'
@@ -18,6 +18,11 @@ moviedb.config([ '$routeProvider',
 				templateUrl: 'show.html',
 				controller: 'MovieController'
 			)
+
+		flashProvider.errorClassnames.push('alert-danger')
+		flashProvider.warnClassnames.push('alert-warning')
+		flashProvider.infoClassnames.push('alert-info')
+		flashProvider.successClassnames.push('alert-success')
 ])
 
 controllers = angular.module('controllers', [])
