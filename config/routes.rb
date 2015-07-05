@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show, :create, :update, :destroy]
 end
