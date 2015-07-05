@@ -2,7 +2,9 @@ moviedb = angular.module('moviedb', [
 	'templates',
 	'ngRoute',
 	'ngResource',
-	'controllers'
+	'controllers',
+	'angular-flash.service',
+	'angular-flash.flash-alert-directive'
 ])
 
 moviedb.config([ '$routeProvider',
