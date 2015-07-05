@@ -12,6 +12,10 @@ moviedb.config([ '$routeProvider',
 				templateUrl: 'index.html'
 				controller: 'MoviesController'
 			)
+			.when('/recipes/:recipeId',
+				templateUrl: 'show.html',
+				controller: 'MovieController'
+			)
 ])
 
 controllers = angular.module('controllers', [])
