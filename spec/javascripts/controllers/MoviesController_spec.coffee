@@ -13,8 +13,6 @@ describe 'MoviesController', ->
 			resource = $resource
 			routeParams = $routeParams
 			routeParams.keywords = keywords
-
-			# capture the injected service
 			httpBackend = $httpBackend
 
 			if results
@@ -27,7 +25,6 @@ describe 'MoviesController', ->
 		)
 
 	beforeEach(module('moviedb'))
-	# beforeEach(setupController())
 
 	afterEach ->
 		httpBackend.verifyNoOutstandingExpectation()
