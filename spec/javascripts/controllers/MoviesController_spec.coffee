@@ -43,10 +43,14 @@ describe 'MoviesController', ->
 				{
 					id: 1
 					title: 'Pulp Fiction'
+					year: '1994'
+					rating: 9
 				},
 				{
 					id: 4
 					title: 'Kill Bill: Vol. 2'
+					year: '2003'
+					rating: 8
 				}
 			]
 
