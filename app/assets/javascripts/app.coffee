@@ -11,20 +11,24 @@ moviedb.config([ '$routeProvider', 'flashProvider',
 	($routeProvider, flashProvider)->
 		$routeProvider
 			.when('/',
-				templateUrl: 'index.html',
+				templateUrl: 'movies/index.html',
 				controller: 'MoviesController',
 			)
 			.when('/movies/new',
-				templateUrl: 'form.html',
+				templateUrl: 'movies/form.html',
 				controller: 'MovieController'
 			)
 			.when('/movies/:movieId',
-				templateUrl: 'show.html',
+				templateUrl: 'movies/show.html',
 				controller: 'MovieController'
 			)
 			.when('/movies/:movieId/edit',
-				templateUrl: 'form.html',
+				templateUrl: 'movies/form.html',
 				controller: 'MovieController'
+			)
+			.when('/actors',
+				templateUrl: 'actors/index.html',
+				controller: 'ActorsController'
 			)
 
 		flashProvider.errorClassnames.push('alert-danger')
