@@ -1,0 +1,1 @@
+json.array! @actors, partial: 'actor', as: :actor
