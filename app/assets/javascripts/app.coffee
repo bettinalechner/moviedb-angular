@@ -37,32 +37,4 @@ moviedb.config([ '$routeProvider', 'flashProvider',
 		flashProvider.successClassnames.push('alert-success')
 ])
 
-actors = [
-	{
-		id: 1
-		firstName: 'Uma'
-		lastName: 'Thurman'
-	},
-	{
-		id: 2
-		firstName: 'Lucy'
-		lastName: 'Liu'
-	},
-	{
-		id: 3
-		firstName: 'John'
-		lastName: 'Travolta'
-	}
-]
-
 controllers = angular.module('controllers', [])
-controllers.controller('ActorsController', [ '$scope', '$routeParams', '$location', '$resource'
-	($scope, $routeParams, $location, $resource)->
-		$scope.search = (keywords)-> $location.path('/actors').search('keywords', keywords)
-		Actor = $resource('/actors/:actorId', { actorId: "@id", format: 'json' })
-
-		if $routeParams.keywords
-			Actor.query(keywords: $routeParams.keywords, (results)-> $scope.actors = results)
-		else
-			$scope.actors = []
-])
