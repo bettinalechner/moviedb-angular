@@ -8,4 +8,6 @@ controllers.controller('ActorsController', [ '$scope', '$routeParams', '$locatio
 			Actor.query(keywords: $routeParams.keywords, (results)-> $scope.actors = results)
 		else
 			$scope.actors = []
+
+		$scope.view = (actorId)-> $location.path("/actors/#{actorId}")
 ])

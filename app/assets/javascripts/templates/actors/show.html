@@ -1,0 +1,20 @@
+<div class="panel-heading">
+	<h1 class="panel-title">{{ actor.firstName }} {{ actor.lastName }}</h1>
+</div>
+<div class="panel-body">
+	<aside class="flash row">
+		<article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3 col-sm-12" >
+			{{ flash.message }}
+		</article>
+	</aside>
+	<p>Date of Birth: {{ actor.dateOfBirth }}</p>
+</div>
+<div class="panel-footer clearfix">
+	<div class="col-md-3">
+		<button ng-click="back()" class="btn btn-default">Back</button>
+	</div>
+	<div class="col-md-9 text-right">
+		<button ng-click="edit(actor.id)" class="btn btn-info">Edit</button>
+		<button ng-click="delete(actor.id)" class="btn btn-danger">Delete</button>
+	</div>
+</div>

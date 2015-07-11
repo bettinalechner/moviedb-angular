@@ -46,4 +46,30 @@ describe ActorsController do
   		end
   	end
   end
+
+  describe 'show' do
+    before do
+      xhr :get, :show, format: :json, id: actor_id
+    end
+
+    subject(:results) { JSON.parse(response.body) }
+
+    context 'when the actor exists' do
+      let(:actor) {
+        Actor.create!({ first_name: 'Uma', last_name: 'Thurman', date_of_birth: '1970-04-29'})
+      }
+      let(:actor_id) { actor.id }
+
+      it { expect(response.status).to eq(200) }
+      it { expect(results['id']).to eq(actor.id) }
+      it { expect(results['firstName']).to eq(actor.first_name) }
+      it { expect(results['lastName']).to eq(actor.last_name) }
+      it { expect(results['dateOfBirth']).to eq(actor.date_of_birth.strftime('%Y-%m-%d')) }
+    end
+
+    context 'when the actor doesn\'t exist' do
+      let(:actor_id) { -999 }
+      it { expect(response.status).to eq(404) }
+    end
+  end
 end
