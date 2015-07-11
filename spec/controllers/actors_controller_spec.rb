@@ -72,4 +72,53 @@ describe ActorsController do
       it { expect(response.status).to eq(404) }
     end
   end
+
+  describe 'create' do
+    before do
+      xhr :post, :create, format: :json, actor: {
+        first_name: 'Tom',
+        last_name: 'Hanks',
+        date_of_birth: '1956-07-09'
+      }
+    end
+
+    it { expect(response.status).to eq(201) }
+    it { expect(Actor.last.first_name).to eq('Tom') }
+    it { expect(Actor.last.last_name).to eq('Hanks') }
+    it { expect(Actor.last.date_of_birth.strftime('%Y-%m-%d')).to eq('1956-07-09') }
+  end
+
+  describe 'update' do
+    let(:actor) {
+      Actor.create!({ first_name: 'Uma', last_name: 'Thurman', date_of_birth: '1970-04-29'})
+    }
+
+    before do
+      xhr :put, :update, format: :json, id: actor.id, actor: {
+        first_name: 'Tom',
+        last_name: 'Hardy',
+        date_of_birth: '1977-09-15'
+      }
+
+      actor.reload
+    end
+
+    it { expect(response.status).to eq(204) }
+    it { expect(Actor.last.first_name).to eq('Tom') }
+    it { expect(Actor.last.last_name).to eq('Hardy') }
+    it { expect(Actor.last.date_of_birth.strftime('%Y-%m-%d')).to eq('1977-09-15') }
+  end
+
+  describe 'destroy' do
+    let(:actor_id) {
+      Actor.create!({ first_name: 'Uma', last_name: 'Thurman', date_of_birth: '1970-04-29'})
+    }
+
+    before do
+      xhr :delete, :destroy, format: :json, id: actor_id
+    end
+
+    it { expect(response.status).to eq(204) }
+    it { expect(Actor.find_by_id(actor_id)).to be_nil }
+  end
 end
