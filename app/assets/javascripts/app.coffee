@@ -30,6 +30,10 @@ moviedb.config([ '$routeProvider', 'flashProvider',
 				templateUrl: 'actors/index.html',
 				controller: 'ActorsController'
 			)
+			.when('/actors/:actorId',
+				templateUrl: 'actors/show.html',
+				controller: 'ActorController'
+			)
 
 		flashProvider.errorClassnames.push('alert-danger')
 		flashProvider.warnClassnames.push('alert-warning')
