@@ -4,6 +4,7 @@ describe 'ActorController', ->
 	httpBackend = null
 	routeParams = null
 	ctrl = null
+	flash = null
 	actorId = 42
 
 	fakeActor =
@@ -13,12 +14,13 @@ describe 'ActorController', ->
 		dateOfBirth: '1970-04-29'
 
 	setupController =(actorExists = true)->
-		inject(($location, $routeParams, $rootScope, $httpBackend, $controller)->
+		inject(($location, $routeParams, $rootScope, $httpBackend, $controller, _flash_)->
 			scope = $rootScope.$new()
 			location = $location
 			httpBackend = $httpBackend
 			routeParams = $routeParams
 			routeParams.actorId = actorId
+			flash = _flash_
 
 			request = new RegExp("\/actors/#{actorId}")
 			results = if actorExists
@@ -52,3 +54,4 @@ describe 'ActorController', ->
 			it 'loads no actor', ->
 				httpBackend.flush()
 				expect(scope.actor).toBe(null)
+				expect(flash.error).toBe("There is no actor with ID #{actorId}")
