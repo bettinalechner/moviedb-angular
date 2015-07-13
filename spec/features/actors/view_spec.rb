@@ -14,14 +14,14 @@ feature 'Viewing an actor', js: true do
 		fill_in 'keywords', with: 'uma'
 		click_on 'Search'
 
-		click_on 'Uma Thurman'
+		click_on 'Uma'
 
 		expect(page).to have_content('Uma Thurman')
-		expect(page).to have_content('1970')
+		expect(page).to have_content('Age')
 
 		click_on 'Back'
 
 		expect(page).to have_content('Uma Thurman')
-		expect(page).to_not have_content('1970')
+		expect(page).to_not have_content('Age')
 	end
 end

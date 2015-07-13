@@ -27,12 +27,12 @@ feature 'Creating, editing, and deleting an actor', js: true do
 		visit '/'
 		click_on 'Actors'
 		fill_in 'keywords', with: 'tom'
-		click_on 'Serach'
+		click_on 'Search'
 
-		click_on 'Tom Hardy'
+		click_on 'Tom'
 
 		click_on 'Delete'
 
-		expect(Actor.find_by_name('Tom Hardy')).to be_nil
+		expect(Actor.find_by_last_name('Hardy')).to be_nil
 	end
 end

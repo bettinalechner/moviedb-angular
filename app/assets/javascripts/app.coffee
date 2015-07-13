@@ -30,8 +30,16 @@ moviedb.config([ '$routeProvider', 'flashProvider',
 				templateUrl: 'actors/index.html',
 				controller: 'ActorsController'
 			)
+			.when('/actors/new',
+				templateUrl: 'actors/form.html',
+				controller: 'ActorController'
+			)
 			.when('/actors/:actorId',
 				templateUrl: 'actors/show.html',
+				controller: 'ActorController'
+			)
+			.when('/actors/:actorId/edit',
+				templateUrl: 'actors/form.html',
 				controller: 'ActorController'
 			)
 

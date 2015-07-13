@@ -1,0 +1,38 @@
+<div class="panel-heading">
+	<h1 class="panel-title">Actor</h1>
+</div>
+<div class="panel-body">
+	<aside class="flash row">
+		<article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
+			{{ flash.message }}
+		</article>
+	</aside>
+	<form role="form" class="form-horizontal edit-actor">
+		<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
+			<label for="firstName" class="col-md-2 control-label col-md-offset-2">First Name</label>
+			<div class="col-md-5">
+				<input type="text" name="firstName" class="form-control" placeholder="e.g. Uma" ng-model="actor.first_name">
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
+			<label for="lastName" class="col-md-2 control-label col-md-offset-2">Last Name</label>
+			<div class="col-md-5">
+				<input type="text" name="lastName" class="form-control" placeholder="e.g. Thurman" ng-model="actor.last_name">
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-warning has-feedback': errors.name}">
+			<label for="dateOfBirth" class="col-md-2 control-label col-md-offset-2">Date of Birth</label>
+			<div class="col-md-5">
+				<input type="text" name="dateOfBirth" class="form-control" placeholder="e.g. 2000-01-01" ng-model="actor.date_of_birth">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-4 col-md-1">
+				<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+			</div>
+			<div class="col-md-4 text-right">
+				<button class="btn btn-primary" ng-click="save()">Save</button>
+			</div>
+		</div>
+	</form>
+</div>

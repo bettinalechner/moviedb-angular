@@ -10,4 +10,6 @@ controllers.controller('ActorsController', [ '$scope', '$routeParams', '$locatio
 			$scope.actors = []
 
 		$scope.view = (actorId)-> $location.path("/actors/#{actorId}")
+		$scope.newActor = -> $location.path('/actors/new')
+		$scope.edit = (actorId)-> $location.path("/actors/#{actorId}/edit")
 ])

@@ -2,8 +2,8 @@ controllers = angular.module('controllers')
 controllers.controller('ActorController', [ '$scope', '$routeParams', '$resource', 'flash', '$location',
 	($scope, $routeParams, $resource, flash, $location)->
 		Actor = $resource('/actors/:actorId', { actorId: "@id", format: 'json' }, {
-			'save': { method: 'PUT'},
-			'create': { method: 'POST'}
+			'save': { method: 'PUT' },
+			'create': { method: 'POST' }
 		})
 
 		if $routeParams.actorId
