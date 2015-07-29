@@ -8,7 +8,7 @@ controllers.controller('MovieController', ['$scope', '$routeParams', '$resource'
 
 		if $routeParams.movieId
 			Movie.get({ movieId: $routeParams.movieId },
-				( (movie) -> $scope.movie = movie.movie ),
+				( (movie) -> $scope.movie = movie ),
 				( (httpResponse) -> 
 					$scope.movie = null
 					flash.error = "There is no movie with ID #{$routeParams.movieId}"
@@ -17,7 +17,7 @@ controllers.controller('MovieController', ['$scope', '$routeParams', '$resource'
 		else
 			$scope.movie = {}
 
-		$scope.actor = (id) -> $location.path("/actors/#{id}")
+		$scope.showActor = (id) -> $location.path("/actors/#{id}")
 		$scope.back = -> $location.path('/')
 		$scope.edit = -> $location.path("/movies/#{$scope.movie.id}/edit")
 		$scope.cancel = ->
