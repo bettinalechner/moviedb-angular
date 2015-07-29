@@ -17,6 +17,7 @@ controllers.controller('ActorController', [ '$scope', '$routeParams', '$resource
 		else
 			$scope.actor = {}
 
+		$scope.showMovie = (id) -> $location.path("/movies/#{id}")
 		$scope.back = -> $location.path('/actors')
 		$scope.edit = -> $location.path("/actors/#{$scope.actor.id}/edit")
 		$scope.cancel = ->

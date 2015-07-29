@@ -1,5 +1,5 @@
 <div class="panel-heading">
-	<h1 class="panel-title">{{ actor.firstName }} {{ actor.lastName }}</h1>
+	<h1 class="panel-title">{{ actor.name }}</h1>
 </div>
 <div class="panel-body">
 	<aside class="flash row">
@@ -9,6 +9,12 @@
 	</aside>
 	<p>Date of Birth: {{ actor.dateOfBirth }}</p>
 	<p>Age: {{ actor.age }}</p>
+	<div id="roles" ng-if="actor.roles[0]">
+		<h2>Roles</h2>
+		<ul>
+			<li ng-repeat="role in actor.roles">{{ role.name }} in <a href ng-click="showMovie(role.movie_id)">{{ role.movie_title }}</a></li>
+		</ul>
+	</div>
 </div>
 <div class="panel-footer clearfix">
 	<div class="col-md-3">
