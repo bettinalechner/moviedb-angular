@@ -8,6 +8,12 @@
 		</article>
 	</aside>
 	<p>Rating: {{ movie.rating }}</p>
+	<div id="cast" ng-if="movie.roles[0]">
+		<h2>Cast</h2>
+		<ul>
+			<li ng-repeat="role in movie.roles"><a href ng-click="actor(role.actor_id)">{{ role.actor_name }}</a> as {{ role.name }}</li>
+		</ul>
+	</div>
 </div>
 <div class="panel-footer clearfix">
 	<div class="col-md-3">
