@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :movies, only: [:index, :show, :create, :update, :destroy]
   resources :actors, only: [:index, :show, :create, :update, :destroy]
+  resources :roles, only: [:create, :update, :destroy]
 end
